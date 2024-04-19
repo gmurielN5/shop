@@ -1,16 +1,6 @@
-import CategoryItem from "../directory-item/directory-item.component";
+import CategoryItem from '../directory-item/directory-item.component';
 
-const Directory = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "Hats",
-    },
-    {
-      id: 2,
-      title: "Shoes",
-    },
-  ];
+const Directory = ({ categories }) => {
   return (
     <div>
       {categories.map((category) => (
