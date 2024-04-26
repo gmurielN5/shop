@@ -1,11 +1,20 @@
-const CategoryItem = ({ category }) => {
-  const { title } = category;
+import {
+  BackgroundImage,
+  Body,
+  DirectoryItemContainer,
+} from './directory-item.styles';
+
+const DirectoryItem = ({ category }) => {
+  const { imageUrl, title } = category;
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>shop now</p>
-    </div>
+    <DirectoryItemContainer>
+      <BackgroundImage imageUrl={imageUrl} />
+      <Body>
+        <h2>{title}</h2>
+        <p>Shop Now</p>
+      </Body>
+    </DirectoryItemContainer>
   );
 };
 
-export default CategoryItem;
+export default DirectoryItem;
