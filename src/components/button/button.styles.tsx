@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const BaseButton = styled.button`
   min-width: 165px;
   width: auto;
-  height: 50px;
+  height: auto;
   letter-spacing: 0.5px;
-  line-height: 50px;
-  padding: 0 35px 0 35px;
+  line-height: 24px;
+  padding: 8px 24px;
   font-size: 15px;
   background-color: black;
   color: white;
@@ -23,16 +23,6 @@ export const BaseButton = styled.button`
     background-color: white;
     color: black;
     border: 1px solid black;
-  }
-`;
-
-export const GoogleSignInButton = styled(BaseButton)`
-  background-color: #4285f4;
-  color: white;
-
-  &:hover {
-    background-color: #357ae8;
-    border: none;
   }
 `;
 
