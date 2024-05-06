@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import {
   selectCategoriesMap,
-  selectIsLoading,
+  selectCategoriesIsLoading,
 } from '../../store/categories/category.selector';
 
 import ProductCard from '../../components/product-card/product-card.component';
@@ -15,10 +15,9 @@ import { CategoryContainer, Title } from './category.styles';
 const Category = () => {
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState(categoriesMap[category]);
 
-  console.log(categoriesMap);
   useEffect(() => {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
