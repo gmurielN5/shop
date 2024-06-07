@@ -2,21 +2,21 @@ import styled from 'styled-components';
 
 export const ProductCartContainer = styled.div`
   width: 100%;
+  height: 350px;
   display: flex;
   flex-direction: column;
-  height: 350px;
   align-items: center;
   position: relative;
 
   img {
-    width: 100%;
-    height: 95%;
+    width: auto;
+    height: 90%;
     object-fit: cover;
     margin-bottom: 5px;
   }
 
   button {
-    width: 80%;
+    width: 250px;
     opacity: 0.7;
     position: absolute;
     top: 255px;
@@ -35,8 +35,6 @@ export const ProductCartContainer = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    width: 40vw;
-
     button {
       display: block;
       opacity: 0.9;
@@ -56,10 +54,10 @@ export const ProductCartContainer = styled.div`
 `;
 
 export const Footer = styled.div`
-  width: 80%;
-  margin: 10px auto;
+  width: 100%;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: capitalize;
 `;

@@ -12,6 +12,7 @@ import {
   CheckoutContainer,
   CheckoutHeader,
   HeaderBlock,
+  SmallBlock,
   Total,
 } from './checkout.styles';
 
@@ -22,20 +23,17 @@ const Checkout = () => {
   return (
     <CheckoutContainer>
       <CheckoutHeader>
-        <HeaderBlock>
+        <SmallBlock>
           <span>Product</span>
-        </HeaderBlock>
+        </SmallBlock>
         <HeaderBlock>
           <span>Description</span>
         </HeaderBlock>
-        <HeaderBlock>
+        <SmallBlock>
           <span>Quantity</span>
-        </HeaderBlock>
+        </SmallBlock>
         <HeaderBlock>
           <span>Price</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Remove</span>
         </HeaderBlock>
       </CheckoutHeader>
       {cartItems.map((cartItem) => (

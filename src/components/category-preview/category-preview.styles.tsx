@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 export const CategoryPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
-
-  @media screen and (max-width: 800px) {
-    align-items: center;
-  }
+  margin: 30px auto;
 `;
 
 export const Title = styled(Link)`
@@ -20,13 +16,18 @@ export const Title = styled(Link)`
 
 export const Preview = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-row-gap: 15px;
 
-  @media screen and (max-width: 800px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 15px;
-    grid-row-gap: 25px;
+  @media screen and (min-width: 576px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+  }
+  @media screen and (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
