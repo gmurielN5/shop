@@ -1,7 +1,12 @@
-import { Key } from 'react';
+import { Key, useState, useEffect, useRef } from 'react';
 import DirectoryItem from '../directory-item/directory-item.component';
 
-import { DirectoryContainer } from './directory.styles';
+import {
+  DirectoryContainer,
+  DirectoryWrapper,
+  SlideDots,
+  SlideDot,
+} from './directory.styles';
 
 export type DirectoryCategory = {
   id: Key;
@@ -35,11 +40,50 @@ const categories = [
 ];
 
 const Directory = () => {
+  const [index, setIndex] = useState(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null
+  );
+
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  }
+
+  useEffect(() => {
+    resetTimeout();
+    timeoutRef.current = setTimeout(
+      () =>
+        setIndex((prevIndex) =>
+          prevIndex === categories.length - 1 ? 0 : prevIndex + 1
+        ),
+      5000
+    );
+
+    return () => {
+      resetTimeout();
+    };
+  }, [index]);
+
   return (
     <DirectoryContainer>
-      {categories.map((category) => (
-        <DirectoryItem key={category.id} category={category} />
-      ))}
+      <DirectoryWrapper $index={index}>
+        {categories.map((category, index) => (
+          <DirectoryItem key={index} category={category} />
+        ))}
+      </DirectoryWrapper>
+      <SlideDots>
+        {categories.map((_, idx) => (
+          <SlideDot
+            key={idx}
+            $active={index === idx ? true : false}
+            onClick={() => {
+              setIndex(idx);
+            }}
+          ></SlideDot>
+        ))}
+      </SlideDots>
     </DirectoryContainer>
   );
 };
